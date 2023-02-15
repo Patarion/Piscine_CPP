@@ -1,6 +1,6 @@
 NAME = io
 
-SRCS = main.cpp io.cpp
+SRCS = main.cpp
 
 CC = c++ -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98

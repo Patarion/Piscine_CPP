@@ -10,10 +10,10 @@ int main (void)
     std::cout << "À quel degré de chialage êtes vous? (INFO, WARNING, DEBUG, ERROR)" << std::endl;
     std::cin >> info;
     chialeux.complain(info);
-    std::cout << "Bon asteur Harly en a sur le coeur..." << std::endl;
-    chialeux.complain("INFO");
-    chialeux.complain("WARINING");
+    std::cout << "Bon asteur Hartley en a sur le coeur..." << std::endl;
     chialeux.complain("DEBUG");
+    chialeux.complain("INFO");
+    chialeux.complain("WARNING");
     chialeux.complain("ERROR");
     return 0;
 }

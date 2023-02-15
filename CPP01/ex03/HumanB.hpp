@@ -9,8 +9,7 @@ public :
     HumanB(std::string name);
     ~HumanB();
     void    attack();
-    void    setName(std::string name);
-	void	setWeapon(Weapon arme);
+    void	setWeapon(Weapon arme);
 
 private :
     Weapon*     equipped;

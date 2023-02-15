@@ -1,16 +1,12 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) {
-    setName(name);
+HumanB::HumanB(std::string name) : name(name) {
+
 }
 
 HumanB::~HumanB(){
 
-}
-
-void    HumanB::setName(std::string info){
-    name = info;
 }
 
 void    HumanB::attack() {

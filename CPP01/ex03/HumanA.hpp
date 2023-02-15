@@ -9,11 +9,10 @@ public:
     HumanA(std::string name ,Weapon& arme);
     ~HumanA(void);
     void attack();
-    void setName(std::string info);
-	void setWeapon(Weapon& arme);
+
 private :
-    Weapon&     equipped;
     std::string name;
+    Weapon&     equipped;
 };
 
 #endif //CPP_HUMANA_HPP
