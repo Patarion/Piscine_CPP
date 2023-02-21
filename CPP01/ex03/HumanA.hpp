@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/21 14:01:35 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/21 14:01:37 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Weapon.hpp"
 
@@ -8,7 +20,7 @@ class HumanA{
 public:
     HumanA(std::string name ,Weapon& arme);
     ~HumanA(void);
-    void attack();
+    void Attack();
 
 private :
     std::string name;

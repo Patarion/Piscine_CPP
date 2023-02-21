@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/21 13:31:15 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/21 13:31:17 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 Zombie::Zombie(void){
@@ -15,18 +27,18 @@ void Zombie::announce(void) {
 Zombie* newZombie(std::string name) {
     Zombie* newZombie = new Zombie;
 
-    newZombie->init_name(name);
+    newZombie->Init_Name(name);
     return newZombie;
 }
 
-void randomChump(std::string name){
+void RandomChump(std::string name){
     Zombie Bob;
 
-    Bob.init_name(name);
+    Bob.Init_Name(name);
     Bob.announce();
 }
 
-void Zombie::init_name(std::string info){
+void Zombie::Init_Name(std::string info){
     name = info;
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/21 14:02:06 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/21 14:02:08 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Weapon.hpp"
 
@@ -8,8 +20,8 @@ class HumanB{
 public :
     HumanB(std::string name);
     ~HumanB();
-    void    attack();
-    void	setWeapon(Weapon arme);
+    void    Attack();
+    void	SetWeapon(Weapon arme);
 
 private :
     Weapon*     equipped;

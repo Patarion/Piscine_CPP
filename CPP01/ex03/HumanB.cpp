@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/21 14:01:59 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/21 14:02:01 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
@@ -9,11 +21,11 @@ HumanB::~HumanB(){
 
 }
 
-void    HumanB::attack() {
-    std::cout << name << " is attacking with " << equipped->_getType() << std::endl;
+void    HumanB::Attack() {
+    std::cout << name << " is attacking with " << equipped->GetType() << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon arme)
+void	HumanB::SetWeapon(Weapon arme)
 {
 	equipped = &arme;
 }
