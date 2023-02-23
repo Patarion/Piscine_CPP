@@ -14,7 +14,7 @@
 
 int main (int argc, char **argv)
 {
-    if (argc < 2 || argc > 4)
+    if (argc < 3 || argc > 4)
         return (1);
     std::string     name_i_file = argv[1];
     std::string     occur = argv[2];
@@ -27,11 +27,16 @@ int main (int argc, char **argv)
     size_t          pos = 0;
 
     i_file.open(name_i_file, std::ios::in);
-    if(!i_file.is_open())
+    if(!i_file.is_open()){
         std::cout << "The file is invalid or missing" << std::endl;
+		return (-1);
+	}
     o_file.open(name_o_file, std::ios::out);
     if (!o_file.is_open())
+	{
         std::cout << "Failed to create file" << std::endl;
+		return (-1);
+	}
     while (getline(i_file, line)){
         if (line.find(occur) != std::string::npos) {
             pos = line.find(occur);
