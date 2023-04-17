@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 15:11:37 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/03/05 15:11:43 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/03/05 15:25:45 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 16:19:17 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CPP_WHATEVER_HPP
+#define CPP_WHATEVER_HPP
 
-#ifndef CPP_SERIALIZE_HPP
-#define CPP_SERIALIZE_HPP
 #include <iostream>
 
-class Data {
-public :
-    Data();
-    Data(Data &cpy);
-    ~Data();
-    int GetA();
-    std::string GetInfo();
-    void SetA(int info);
-    void SetInfo(std::string info);
+template < typename T >
 
-    Data &operator=(Data &cpy);
+T max(T const &x, T const &y) {
+    return ((x >= y) ? x : y);
+}
 
-private :
-    int         _a;
-    std::string _info;
-};
+template < typename T >
+T min(T const &x, T const &y) {
+    return ((x <= y) ? x : y);
+}
 
+template <typename T >
+void swap(T &x, T &y) {
+    T tmp;
 
-#endif //CPP_SERIALIZE_HPP
+    tmp = x;
+    x = y;
+    y = tmp;
+}
+
+#endif //CPP_WHATEVER_HPP

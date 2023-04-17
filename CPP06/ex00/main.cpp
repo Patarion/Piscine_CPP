@@ -1,29 +1,46 @@
-//
-// Created by Jasmin Gagnon on 2/13/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/05 15:09:08 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 15:09:09 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include <iostream>
+#include <cstring>
+
 
 char ParseArg(std::string info)
 {
     int i;
 
     i = 0;
-    if (info.length() == 1 && isprint(info[i]) && isdigit(info[i]) == 0)
+    if (info.length() == 1 && isascii(info[i]))
         return ('c');
     if (info[i] == '-')
         i++;
     while (isdigit(info[i]) != 0)
         i++;
-    if (info[i] == '\0' && stoi(info) > INT_MIN && stoi(info) < INT_MAX)
-        return ('i');
-    else if (info[i] == '.')
+	try {
+    	if (info[i] == '\0' && stoi(info) > INT_MIN && stoi(info) < INT_MAX)
+        	return ('i');
+	}
+    catch (std::exception &ex)
+    { 
+
+	}
+    if (info[i] == '.')
     {
         i++;
         while (info[i] != '\0' && isdigit(info[i]) != 0)
             i++;
         if (info[i + 1] == '\0' && info[i] == 'f')
-            return ('f');
+           	return ('f');
         else if (info[i] == '\0')
             return ('d');
     }
@@ -63,10 +80,12 @@ void int_convert(char *str)
 void float_convert(char *str)
 {
     long double base;
-    int         exp;
+    long double decimal;
+    long double exp;
     float       f;
 
     base = 0;
+    decimal = 0;
     exp = 1;
     while (*str != '.')
     {
@@ -76,12 +95,12 @@ void float_convert(char *str)
     str++;
     while (*str != 'f')
     {
-        base = (base * 10) + (*str - 0x30);
+        decimal = (decimal * 10) + (*str - 0x30);
         str++;
         exp *= 10;
     }
-    f = base / exp;
-    std::cout << "Value of float " << f << std::endl;
+    decimal /= exp;
+    f = base + decimal;
     if (isprint(f) != 0)
         std::cout << "Char value : " << static_cast<char>(f) << std::endl;
     else if (isprint(f) == 0)
@@ -95,7 +114,7 @@ void double_converter(char *str)
 {
     long double     base;
     long double     decimal;
-    int             exp;
+    long double     exp;
     double          d;
 
     base = 0;
@@ -130,6 +149,15 @@ int main (int argc, char **argv)
     if (argc != 2)
     {
         std::cout << "Veuillez fournir un seul paramètre" <<std::endl;
+        return (-1);
+    }
+    if (strcmp(argv[1], "-inf") == 0 || strcmp(argv[1], "+inf") == 0 || strcmp(argv[1], "nan") == 0
+        || strcmp(argv[1], "-inff") == 0 || strcmp(argv[1], "+inff") == 0 || strcmp(argv[1], "nanf") == 0)
+    {
+        std::cout << "Char value : Impossible" << std::endl;
+        std::cout << "Integer value : Impossible" << std::endl;
+        std::cout << "Float value : " << argv[1] << "f" << std::endl;
+        std::cout << "Double value : " << argv[1] << std::endl;
         return (-1);
     }
     type = ParseArg(argv[1]);

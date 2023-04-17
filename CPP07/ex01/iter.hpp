@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 15:11:37 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/03/05 15:11:43 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/03/05 16:19:34 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 16:19:35 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef CPP_SERIALIZE_HPP
-#define CPP_SERIALIZE_HPP
+#ifndef CPP_ITER_HPP
+#define CPP_ITER_HPP
+
 #include <iostream>
 
-class Data {
-public :
-    Data();
-    Data(Data &cpy);
-    ~Data();
-    int GetA();
-    std::string GetInfo();
-    void SetA(int info);
-    void SetInfo(std::string info);
+template<typename T>
+void iter(T *addr, int size, void (*f)(T&)){
+    int i;
 
-    Data &operator=(Data &cpy);
+    i = 0;
+    while(i < size){
+        (*f)(addr[i]);
+        i++;
+    }
+}
 
-private :
-    int         _a;
-    std::string _info;
-};
-
-
-#endif //CPP_SERIALIZE_HPP
+#endif //CPP_ITER_HPP

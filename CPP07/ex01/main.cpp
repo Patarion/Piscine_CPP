@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 15:11:37 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/03/05 15:11:43 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/03/05 16:19:50 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 16:19:51 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef CPP_SERIALIZE_HPP
-#define CPP_SERIALIZE_HPP
-#include <iostream>
+#include "iter.hpp"
 
-class Data {
-public :
-    Data();
-    Data(Data &cpy);
-    ~Data();
-    int GetA();
-    std::string GetInfo();
-    void SetA(int info);
-    void SetInfo(std::string info);
+void multiply(int &a)
+{
+    a *= 2;
+}
 
-    Data &operator=(Data &cpy);
+void to_print(std::string &str)
+{
+    std::cout << str << " ";
+}
 
-private :
-    int         _a;
-    std::string _info;
-};
+int main (void) {
+    int tab[7] = {4, 5, 6, 7, 8, 9, 10};
+    std::string str_tab[4] = {"Bon", "matin", "les", "potos"};
+    int j;
 
+    j = -1;
+    iter(tab, 7, &multiply);
+    while (tab[++j])
+        std::cout << tab[j] << " ";
+    iter(str_tab, 4, &to_print);
 
-#endif //CPP_SERIALIZE_HPP
+}

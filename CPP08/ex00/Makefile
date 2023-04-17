@@ -1,6 +1,6 @@
-NAME = serialize
+NAME = easyfind
 
-SRCS = main.cpp Serialize.cpp
+SRCS = main.cpp
 
 CC = c++ -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -13,13 +13,14 @@ $(NAME):
 
 ${NAME} :
 		${CC} ${CFLAGS} ${SRCS} -o ${NAME}
-		@echo "____BIP! BOUP! Création de Cyber Jean-Luc Mongrain____"
+		@echo "_______EAZY_PZ-LEMON_SQUEEZY_______"
 
 clean:
 		${RM} ${NAME} ${NAME}.dSYM
-		@echo "____Débranchement du courant primaire. Djiouuuuuuuu...____"
+		@echo "_______GIT_GUD_SCRUB_______"
 fclean: clean
 
 re: fclean all
+
 
 .PHONY: all clean fclean re

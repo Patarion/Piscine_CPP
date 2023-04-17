@@ -1,7 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/05 15:12:02 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 15:12:04 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//
-// Created by Jasmin Gagnon on 2/15/23.
-//
+
 #include "Serialize.hpp"
 #include <cstdint>
 
@@ -23,13 +32,16 @@ int main (void)
 
     test = new Data();
     std::cout << test->GetA() << " " << test->GetInfo() << std::endl;
+    std::cout << test << std::endl;
     addr = serialize(test);
     std::cout << "Numéro de série du Jean-Luc Mongrain : " << addr << std::endl;
     decrypt = deserialize(addr);
+    std::cout << decrypt << std::endl;
     std::cout << "Info de la copie auxilliaire de Mr. Mongrain" << std::endl;
     if (decrypt->GetA() == test->GetA())
     {
         std::cout << "Clone de Mongrain réussi!" << std::endl;
         std::cout << decrypt->GetA() << " " << decrypt->GetInfo();
     }
+    delete test;
 }

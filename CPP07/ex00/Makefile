@@ -1,6 +1,6 @@
-NAME = serialize
+NAME = whatever
 
-SRCS = main.cpp Serialize.cpp
+SRCS = main.cpp
 
 CC = c++ -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -13,11 +13,11 @@ $(NAME):
 
 ${NAME} :
 		${CC} ${CFLAGS} ${SRCS} -o ${NAME}
-		@echo "____BIP! BOUP! Création de Cyber Jean-Luc Mongrain____"
+		@echo "____Un template s'tu une heure tard?____"
 
 clean:
 		${RM} ${NAME} ${NAME}.dSYM
-		@echo "____Débranchement du courant primaire. Djiouuuuuuuu...____"
+		@echo "____Ouin non c'est plus pour dire que c'est l'heure du latté____"
 fclean: clean
 
 re: fclean all
