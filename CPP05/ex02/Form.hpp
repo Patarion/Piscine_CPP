@@ -1,32 +1,40 @@
-//
-// Created by Jasmin Gagnon on 2/6/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/05 15:00:15 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 15:00:17 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef CPP_FORUM_HPP
 #define CPP_FORUM_HPP
 
 #include <iostream>
-#include <exception>
 #include <fstream>
+#include <exception>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
 class Form {
 public :
-    Form(std::string name, bool signature, int sig_r, int exec_r);
+    Form(std::string name, int grade, int exec);
     Form(Form &cpy);
     virtual ~Form();
-    void                SetExec(int info);
-    void                SetSignature(int info);
-    void                SetIsSigne(bool info);
-    bool                GetSigne() const;
-    std::string         GetName() const;
-    int                 GetGradeSigne() const;
-    int                 GetGradeExec() const;
-    void virtual        BeSigned(Bureaucrat* per) = 0;
-    void virtual        BeExecuted(const Bureaucrat* per) const = 0;
-    void                Execute(Bureaucrat const & executor) const;
+    bool        getSigne() const;
+    void        setSigne(bool info);
+    std::string getName() const;
+    int         getGradeSigne() const;
+    int         getGradeExec() const;
+    void        beSigned(Bureaucrat* per);
+    void virtual        execute(const Bureaucrat* per) const = 0;
+    std::string virtual getTarget() const = 0;
+    Form&       operator=(Form &cpy);
     class GradeTooHighException : public std::exception {
     public :
         virtual const char* High_Err() const throw()
@@ -48,5 +56,7 @@ private :
     int const               _g_signe;
     int const               _g_exec;
 };
+
+std::ostream & operator<<(std::ostream &out, Form &form);
 
 #endif //CPP_FORUM_HPP

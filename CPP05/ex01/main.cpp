@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/05 14:56:56 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 14:56:58 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -13,7 +25,15 @@ int main (void)
     contrat1.beSigned(&b1);
     contrat2.beSigned(&b2);
     contrat3.beSigned(&b3);
-    contrat1.getSigne();
-    contrat2.getSigne();
-    contrat3.getSigne();
+    std::cout << contrat1;
+    std::cout << contrat2;
+    std::cout << contrat3;
+//    std::cout << contrat1.getSigne() << std::endl;
+//    std::cout << contrat2.getSigne() << std::endl;
+//    std::cout << contrat3.getSigne() << std::endl;
+    b3.UpGrade();
+    b3.signForm(contrat3);
+    std::cout << contrat1;
+    std::cout << contrat2;
+    std::cout << contrat3;
 }

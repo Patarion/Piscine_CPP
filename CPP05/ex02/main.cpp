@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/05 15:01:32 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 15:01:33 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -17,14 +29,14 @@ int main (void)
 
     Shrub1.BeSigned((Bureaucrat*)b0);
     Shrub1.BeSigned((Bureaucrat*)b1);
-    Shrub1.BeExecuted(b1);
+    Shrub1.execute(b1);
     b2->ExecuteForm(Shrub1);
     Robot1.BeSigned((Bureaucrat*) b1);
     Robot1.BeSigned((Bureaucrat*) b2);
     b2->ExecuteForm(Robot1);
-    Robot1.BeExecuted(b3);
+    Robot1.execute(b3);
     Pardon1.BeSigned((Bureaucrat *) b3);
-    Pardon1.BeExecuted(b3);
+    Pardon1.execute(b3);
     b4->ExecuteForm(Pardon1);
 
     delete b0;

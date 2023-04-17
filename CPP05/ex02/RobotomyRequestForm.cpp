@@ -1,74 +1,98 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/05 15:00:53 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 15:00:54 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "RobotomyRequestForm.hpp"
-#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) :
-    Form("Form", false, 72, 45), target(target) {
-//    std::cout << "Le docteur sera à vous sous peu. C'est pour une robotomy bien sûr?" << std::endl;
+    Form("Robotomy", 72, 45), _target(target) {
+    this->setSigne(false);
+    std::cout << "Le docteur sera à vous sous peu. C'est pour une robotomy bien sûr?" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cpy) :
-    Form(cpy.GetName(), cpy.GetSigne(), cpy.GetGradeSigne(), cpy.GetGradeExec()), target(cpy.target) {
+    Form(cpy.getName(), cpy.getGradeSigne(), cpy.getGradeExec()), _target(cpy.getTarget()) {
+    *this = cpy;
 //    std::cout << "Le docteur c'est cloné pour être 2 fois plus efficace" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
-//    std::cout << "Le docteur vient de quitté l'hôpital" << std::endl;
+    std::cout << "Le docteur vient de quitté l'hôpital" << std::endl;
 }
 
-void RobotomyRequestForm::Robotomy(std::string target) const{
+std::string RobotomyRequestForm::getTarget() const{
+    return (_target);
+}
+
+void RobotomyRequestForm::Robotomy() const{
 
     srand(time(0));
     if ((rand() % 2) == 0)
-        std::cout << "L'opération sur " << target << " a été un succès!" << std::endl;
+        std::cout << "L'opération sur " << _target << " a été un succès!" << std::endl;
     else
-        std::cout << "L'opération sur " << target << " a échoué" << std::endl;
+        std::cout << "L'opération sur " << _target << " a échoué" << std::endl;
 }
 
 void RobotomyRequestForm::BeSigned(Bureaucrat *per){
     try
     {
-        if (per->GetGrade() > GetGradeSigne())
+        if (per->getGrade() > getGradeSigne())
             throw Form::GradeTooLowException();
     }
     catch (GradeTooLowException)
     {
-        std::cout << per->GetName() << " couldn't sign " << GetName() << " because " << GradeTooLowException().Low_Err();
+        std::cout << per->getName() << " couldn't sign " << getName() << " because " << GradeTooLowException().Low_Err();
         std::cout << std::endl;
     }
     try
     {
-        if (per->GetGrade() <= GetGradeSigne())
+        if (per->getGrade() <= getGradeSigne())
             throw Form::GradeTooHighException();
     }
     catch (GradeTooHighException)
     {
-        std::cout << per->GetName() << " can sign the form" << std::endl;
-        SetIsSigne(true);
+        std::cout << per->getName() << " can sign the form " << getName() << std::endl;
+        setSigne(true);
     }
 }
 
-void RobotomyRequestForm::BeExecuted(Bureaucrat const *per) const {
-    if (GetSigne() == false)
+void RobotomyRequestForm::execute(Bureaucrat const *per) const {
+    if (getSigne() == false)
         return ;
     try
     {
-        if (per->GetGrade() > GetGradeExec())
+        if (per->getGrade() > getGradeExec())
             throw Form::GradeTooLowException();
     }
     catch (GradeTooLowException)
     {
-        std::cout << per->GetName() << " couldn't execute " << GetName() << " because " << GradeTooLowException().Low_Err();
+        std::cout << per->getName() << " couldn't execute " << getName() << " because " << GradeTooLowException().Low_Err();
         std::cout << std::endl;
     }
     try
     {
-        if (per->GetGrade() <= GetGradeExec())
+        if (per->getGrade() <= getGradeExec())
             throw Form::GradeTooHighException();
     }
     catch (GradeTooHighException)
     {
-        std::cout << per->GetName() << " can execute the form" << std::endl;
-        Robotomy(target);
+        std::cout << per->getName() << " can execute " << getName() << std::endl;
+        Robotomy();
     }
+}
+
+RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm &cpy)
+{
+    this->setSigne(cpy.getSigne());
+    this->_target = cpy.getTarget();
+    return *this;
 }

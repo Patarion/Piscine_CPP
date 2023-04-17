@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/05 15:01:20 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 15:01:21 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef CPP_SHRUBBERYCREATIONFORM_HPP
 #define CPP_SHRUBBERYCREATIONFORM_HPP
@@ -10,10 +22,12 @@ public :
     ShrubberyCreationForm(ShrubberyCreationForm &cpy);
     virtual ~ShrubberyCreationForm();
     void        BeSigned(Bureaucrat* per);
-    void        BeExecuted(const Bureaucrat* per) const;
+    void        execute(const Bureaucrat* per) const;
     void        createBush(std::string target) const;
+    std::string getTarget() const;
+    ShrubberyCreationForm & operator=(ShrubberyCreationForm &cpy);
 private :
-    std::string target;
+    std::string _target;
 };
 
 #endif //CPP_SHRUBBERYCREATIONFORM_HPP

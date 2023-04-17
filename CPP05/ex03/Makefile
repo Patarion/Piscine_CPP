@@ -6,7 +6,7 @@ SRCS = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp PresidentialPa
 CC = c++ -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 NORM = norminette
-RM = rm -f
+RM = rm -rf
 
 all: $(NAME)
 
@@ -17,7 +17,7 @@ ${NAME} :
 		@echo "____La bureaucratie vient d'être instaurée dans la culture de votre Civilisation____"
 
 clean:
-		${RM} ${NAME}
+		${RM} ${NAME} ${NAME}.dSYM
 		@echo "____À BAS LA MONARCHIE! Je veux dire... À BAS LA BUREAUCRATIE!____"
 fclean: clean
 

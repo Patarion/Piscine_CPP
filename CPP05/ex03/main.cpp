@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/05 15:06:37 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/03/05 15:06:39 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -13,32 +26,34 @@ int main (void)
     const Bureaucrat    *b3 = new Bureaucrat("George", 23);
     const Bureaucrat    *b4 = new Bureaucrat("Paul", 4);
     const Intern        *i1 = new Intern();
-//    ShrubberyCreationForm   Shrub1("Jardin");
-//    RobotomyRequestForm     Robot1("Kyle");
-//    PresidentialPardonForm  Pardon1("Ygor");
     Form *ShrubForm;
     Form *RobotForm;
     Form *PresidentForm;
+    Form *RandomForm;
 
     ShrubForm = i1->makeForm("Shrub", "Parc");
     RobotForm = i1->makeForm("Robot", "Kyle");
     PresidentForm = i1->makeForm("President", "Ygor");
+    RandomForm = i1->makeForm("Random", "You");
 
-    ShrubForm->BeSigned((Bureaucrat*)b0);
-    ShrubForm->BeSigned((Bureaucrat*)b1);
-    ShrubForm->BeExecuted(b1);
+    ShrubForm->beSigned((Bureaucrat*)b0);
+    ShrubForm->beSigned((Bureaucrat*)b1);
+    ShrubForm->execute(b1);
     b2->ExecuteForm(*ShrubForm);
-    RobotForm->BeSigned((Bureaucrat*) b1);
-    RobotForm->BeSigned((Bureaucrat*) b2);
+    RobotForm->beSigned((Bureaucrat*) b1);
+    RobotForm->beSigned((Bureaucrat*) b2);
     b2->ExecuteForm(*RobotForm);
-    RobotForm->BeExecuted(b3);
-    PresidentForm->BeSigned((Bureaucrat *) b3);
-    PresidentForm->BeExecuted(b3);
+    RobotForm->execute(b3);
+    PresidentForm->beSigned((Bureaucrat *) b3);
+    PresidentForm->execute(b3);
     b4->ExecuteForm(*PresidentForm);
-
     delete b0;
     delete b1;
     delete b2;
     delete b3;
     delete b4;
+    delete ShrubForm;
+    delete RobotForm;
+    delete PresidentForm;
+    delete i1;
 }

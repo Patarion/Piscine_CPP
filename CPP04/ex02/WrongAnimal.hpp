@@ -11,8 +11,12 @@ public :
     ~WrongAnimal();
     std::string getType() const;
     void makeSound() const;
+
+    WrongAnimal &operator=(WrongAnimal &cpy);
 protected :
     std::string type;
 };
+
+std::ostream & operator<<(std::ostream &out, WrongAnimal const &val);
 
 #endif //CPP_WRONGANIMAL_HPP
