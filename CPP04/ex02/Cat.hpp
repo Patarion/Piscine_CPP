@@ -10,7 +10,9 @@ public :
     Cat(Cat &cpy);
     ~Cat();
     void makeSound() const;
-    void getIdeas() const;
+    void getBrain() const;
+
+    Cat & operator=(Cat &cpy);
 private :
     Brain *intel;
 };

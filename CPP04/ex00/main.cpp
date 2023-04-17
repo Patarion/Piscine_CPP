@@ -12,16 +12,12 @@ int main (void)
     const WrongAnimal* wmeta = new WrongAnimal("Ygor");
     const WrongCat*    wcat = new WrongCat("Tigrou");
 
-    std::cout << j->getType() << std::endl;
-    std::cout << i->getType() << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
+    std::cout << *meta;
+    std::cout << *j;
+    std::cout << *i;
     std::cout << "Maintenant pour les mauvais animaux" << std::endl;
-    std::cout << wmeta->getType() << std::endl;
-    std::cout << wcat->getType() << std::endl;
-    wmeta->makeSound();
-    wcat->makeSound();
+    std::cout << *wmeta;
+    std::cout << *wcat;
     delete meta;
     delete j;
     delete i;

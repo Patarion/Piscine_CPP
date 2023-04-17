@@ -1,6 +1,15 @@
-//
-// Created by Jasmin Gagnon on 1/20/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 14:28:59 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/27 14:29:00 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef CPP_FIXED_HPP
 #define CPP_FIXED_HPP
@@ -13,7 +22,7 @@ public:
     Fixed();
     Fixed(Fixed const &cpy);
     ~Fixed();
-    int     _getRawBits(void) const;
+    int     getRawBits(void) const;
     void    setRawBits(int const raw);
 
     Fixed & operator=(Fixed const &info);

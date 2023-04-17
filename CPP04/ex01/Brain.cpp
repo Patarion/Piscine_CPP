@@ -29,3 +29,21 @@ void Brain::setIdea(std::string idea, int i) {
 std::string Brain::getIdea(int i) {
     return ideas[i];
 }
+
+Brain & Brain::operator=(Brain &cpy)
+{
+    int i;
+
+    for (i = 0 ; i < 100 ; i++)
+    {
+        this->ideas[i] = cpy.ideas[i];
+    }
+    return *this ;
+}
+
+void Brain::getIdeas() const{
+    int i;
+
+    for (i = 0; i < 100 ; i++)
+        std::cout << ideas[i] << std::endl;
+}

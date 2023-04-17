@@ -23,9 +23,13 @@ void Dog::makeSound() const{
     std::cout << "On spin la roue et le chien fait... WOOF WOOF!" << std::endl;
 }
 
-void Dog::getIdeas() const{
-    int i;
+void Dog::getBrain() const
+{
+    intel->getIdeas();
+}
 
-    for (i = 0; i < 100 ; i++)
-        std::cout << intel->getIdea(i) << std::endl;
+Dog & Dog::operator=(Dog &cpy)
+{
+    this->type = cpy.getType();
+    return *this;
 }

@@ -20,3 +20,14 @@ std::string WrongAnimal::getType() const {
 void WrongAnimal::makeSound() const {
     std::cout << getType() << " est entrain de se balancer sur une toile d'araignée" << std::endl;
 }
+
+WrongAnimal &WrongAnimal::operator=(WrongAnimal &cpy) {
+    this->type = cpy.getType();
+    return *this;
+}
+
+std::ostream & operator<<(std::ostream &out, WrongAnimal const &val){
+    std::cout <<  "Voici l'espèce de l'animal " + val.getType() + " et il fait le son suivant ";
+    val.makeSound();
+    return out;
+}

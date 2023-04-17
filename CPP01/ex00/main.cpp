@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 15:55:03 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/02/20 15:55:05 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/02/20 15:49:50 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/20 15:50:03 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Weapon.hpp"
+#include "Zombie.hpp"
 
-#ifndef CPP_HUMANA_HPP
-#define CPP_HUMANA_HPP
+int main (void)
+{
+    Zombie  Jack("Jack");
+    Zombie  *Larry;
 
-class HumanA{
-public:
-    HumanA(std::string name ,Weapon& arme);
-    ~HumanA(void);
-    void attack();
-
-private :
-    std::string name;
-    Weapon&     equipped;
-};
-
-#endif //CPP_HUMANA_HPP
+    Larry = newZombie("Larry");
+    randomChump("Bob");
+    Jack.announce();
+    Larry->announce();
+    delete Larry;
+    return (0);
+}

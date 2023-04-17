@@ -1,6 +1,6 @@
 NAME = braiiiiiiinnnzzzZ
 
-SRCS = Zombie.cpp main.cpp
+SRCS = Zombie.cpp Main.cpp
 
 CC = c++ -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98

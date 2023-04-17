@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/20 14:01:35 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/20 14:03:50 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
-Contact::Contact(void)
+Contact::Contact(void) : index(0)
 {
-    index = 0;
 //	std::cout << "Constructor called" << std::endl;
 }
 
@@ -11,68 +22,68 @@ Contact::~Contact(void)
 //	std::cout << "Destructor called" << std::endl;
 }
 
-std::string Contact::_getFName(int size) const
+std::string Contact::GetFName(int size) const
 {
-    if (size == 10 && FName.size() >= 11)
-        return FName.substr(0, 9) + ".";
+    if (size == 10 && _FName.size() >= 11)
+        return _FName.substr(0, 9) + ".";
     else
-	    return FName;
+	    return _FName;
 }
 
-std::string	Contact::_getLName(int size) const
+std::string	Contact::GetLName(int size) const
 {
-    if (size == 10 && LName.size() >= 11)
-        return LName.substr(0, 9) + ".";
+    if (size == 10 && _LName.size() >= 11)
+        return _LName.substr(0, 9) + ".";
     else
-        return LName;
+        return _LName;
 }
 
-std::string	Contact::_getNickname(int size) const
+std::string	Contact::GetNickname(int size) const
 {
-    if (size == 10 && Nickname.size() >= 11)
-        return Nickname.substr(0, 9) + ".";
+    if (size == 10 && _Nickname.size() >= 11)
+        return _Nickname.substr(0, 9) + ".";
     else
-        return Nickname;
+        return _Nickname;
 }
 
-std::string	Contact::_getPhone(void) const
+std::string	Contact::GetPhone(void) const
 {
-	return Phone;
+	return _Phone;
 }
-int Contact::_getIndex() const{
+int Contact::GetIndex() const{
     return index;
 }
 
-std::string Contact::_getSecret(void) const
+std::string Contact::GetSecret(void) const
 {
-    return Secret;
+    return _Secret;
 }
 
 void Contact::WName(std::string info) {
-        FName = info;
+        _FName = info;
 }
 
 void Contact::WLName(std::string info) {
-        LName = info;
+        _LName = info;
 }
 
 void Contact::WNickN(std::string info) {
-        Nickname = info;
+        _Nickname = info;
 }
 
 void Contact::WPhone(std::string info) {
-    Phone = info;
+    _Phone = info;
 }
 
 void Contact::WSecret(std::string info) {
-    Secret = info;
+    _Secret = info;
 }
 
-void Contact::_printinfo() const {
-    std::cout << _getFName(0) << std::endl;
-    std::cout << _getLName(0) << std::endl;
-    std::cout << _getNickname(0) << std::endl;
-    std::cout << _getPhone() << std::endl;
-    std::cout << _getSecret() << std::endl;
+void Contact::PrintInfo() const {
+    std::cout << GetFName(0) << std::endl;
+    std::cout << GetLName(0) << std::endl;
+    std::cout << GetNickname(0) << std::endl;
+    std::cout << GetPhone() << std::endl;
+    std::cout << GetSecret() << std::endl;
 }
 

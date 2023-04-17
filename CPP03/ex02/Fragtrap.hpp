@@ -1,8 +1,16 @@
-#include "Claptrap.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fragtrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/28 10:33:52 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/28 10:33:54 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//
-// Created by Jasmin Gagnon on 1/31/23.
-//
+#include "Claptrap.hpp"
 
 #ifndef CPP_FRAGTRAP_HPP
 #define CPP_FRAGTRAP_HPP
@@ -14,8 +22,8 @@ public:
     ~Fragtrap();
     void highFivesGuys(void);
 
-};
+    Fragtrap & operator=(Fragtrap &cpy);
 
-std::ostream & operator<<(std::ostream &out, Fragtrap const &val);
+};
 
 #endif //CPP_FRAGTRAP_HPP

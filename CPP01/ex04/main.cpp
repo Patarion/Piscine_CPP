@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 14:17:48 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/02/21 14:17:50 by jgagnon          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "io.hpp"
 
 int main (int argc, char **argv)
@@ -27,16 +15,11 @@ int main (int argc, char **argv)
     size_t          pos = 0;
 
     i_file.open(name_i_file, std::ios::in);
-    if(!i_file.is_open()){
+    if(!i_file.is_open())
         std::cout << "The file is invalid or missing" << std::endl;
-		return (-1);
-	}
     o_file.open(name_o_file, std::ios::out);
     if (!o_file.is_open())
-	{
         std::cout << "Failed to create file" << std::endl;
-		return (-1);
-	}
     while (getline(i_file, line)){
         if (line.find(occur) != std::string::npos) {
             pos = line.find(occur);

@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 14:02:31 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/02/21 14:02:33 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/02/20 15:56:36 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/20 15:56:38 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
 Weapon::Weapon(std::string name){
-    SetType(name);
+    setType(name);
 }
 
 Weapon::~Weapon(){
 
 }
 
-void Weapon::SetType(std::string name){
-    _type = name;
+void Weapon::setType(std::string name){
+    type = name;
 }
 
-std::string Weapon::GetType() const {
-    return _type;
+std::string Weapon::_getType() const {
+    return type;
 }

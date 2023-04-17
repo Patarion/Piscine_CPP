@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 15:55:03 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/02/20 15:55:05 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/02/20 15:51:31 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/20 15:51:37 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Weapon.hpp"
+#include "Zombie.hpp"
 
-#ifndef CPP_HUMANA_HPP
-#define CPP_HUMANA_HPP
+int main (void)
+{
+    Zombie  Jack;
+    Zombie  *Larry;
+    Zombie  *Meute;
 
-class HumanA{
-public:
-    HumanA(std::string name ,Weapon& arme);
-    ~HumanA(void);
-    void attack();
-
-private :
-    std::string name;
-    Weapon&     equipped;
-};
-
-#endif //CPP_HUMANA_HPP
+    Jack.init_name("Jack");
+    Larry = newZombie("Larry");
+    Meute = zombieHorde(10, "Thomas");
+    randomChump("Bob");
+    Jack.announce();
+    Larry->announce();
+    delete Larry;
+    delete [] Meute;
+    return (0);
+}

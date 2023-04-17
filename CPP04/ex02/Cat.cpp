@@ -23,9 +23,13 @@ void Cat::makeSound() const{
     std::cout << "On spin la roue et le chat fait... MEOW MEOW!" << std::endl;
 }
 
-void Cat::getIdeas() const{
-    int i;
+Cat & Cat::operator=(Cat &cpy)
+{
+    this->type = cpy.getType();
+    return *this;
+}
 
-    for (i = 0; i < 100 ; i++)
-        std::cout << intel->getIdea(i) << std::endl;
+void Cat::getBrain() const
+{
+    intel->getIdeas();
 }

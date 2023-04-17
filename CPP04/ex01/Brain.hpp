@@ -14,8 +14,10 @@ public :
     virtual ~Brain();
     void        setIdea(std::string idea, int i);
     std::string getIdea(int i);
+    void        getIdeas() const;
     void        fullIdeas(std::string idea);
 
+    Brain & operator=(Brain &cpy);
 protected:
     std::string ideas[100];
 };

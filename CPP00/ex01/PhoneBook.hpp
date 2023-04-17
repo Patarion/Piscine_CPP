@@ -13,12 +13,12 @@ public :
         void    search();
         void	add();
         void    printbook();
+        void    exit();
 
 private :
 		const int	_max_cont;
-        int         index;
-		Contact		Contact[8];
-		void		exit();
+        int         _index;
+		Contact		_Contact[8];
 };
 
 #endif

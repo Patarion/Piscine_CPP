@@ -1,6 +1,15 @@
-//
-// Created by Jasmin Gagnon on 1/24/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Claptrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/28 10:28:48 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/28 10:28:49 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef CPP_CLAPTRAP_HPP
 #define CPP_CLAPTRAP_HPP
@@ -16,13 +25,13 @@ public :
     void    takeDamage(unsigned int amount);
     void    beRepaired(unsigned int amount);
 
-private :
-    std::string     _name;
-    int             _Hit_points;
-    int             _Energy;
-    int             _attack_damage;
-};
+    Claptrap & operator=(Claptrap &cpy);
 
-std::ostream & operator<<(std::ostream &out, Claptrap const &val);
+private :
+    std::string     _Name;
+    int             _Hit_Points;
+    int             _Energy;
+    int             _Attack_Damage;
+};
 
 #endif //CPP_CLAPTRAP_HPP

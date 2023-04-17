@@ -1,7 +1,6 @@
 #include "Animal.hpp"
-#include "Brain.hpp"
 
-Animal::Animal(std::string s_type) : type(s_type) {
+Animal::Animal(std::string type) : type(type) {
     std::cout << "On a un nouvel arrivant chez NintenAnimalz" << std::endl;
 }
 
@@ -22,6 +21,19 @@ void Animal::makeSound() const {
     std::cout << "Son d'animal random" << std::endl;
 }
 
-void    Animal::getIdeas() const{
-    std::cout << "Rodrigue! 2 + 2 combien ça fait?... TROIS! Eh sheet..." << std::endl;
+void Animal::getBrain() const
+{
+    std::cout << "Animal inconnu identifié donc pas de cerveau" << std::endl;
+}
+
+Animal & Animal::operator=(Animal &cpy)
+{
+    this->type = cpy.getType();
+    return *this;
+}
+
+std::ostream & operator<<(std::ostream &out, Animal const &val){
+    std::cout <<  "Voici l'espèce de l'animal " + val.getType() + " et il fait le son suivant ";
+    val.makeSound();
+    return out;
 }

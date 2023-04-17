@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 14:02:18 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/02/21 14:02:20 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/02/20 15:57:00 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/20 15:57:01 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ int main (void)
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
-		bob.Attack();
-		club.SetType("some other type of club");
-		bob.Attack();
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
 	}
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
-		jim.SetWeapon(club);
-		jim.Attack();
-		club.SetType("some other type of club");
-		jim.Attack();
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
 	}
 return 0;
 }

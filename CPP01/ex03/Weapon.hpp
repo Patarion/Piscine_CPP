@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 14:02:39 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/02/21 14:02:40 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/02/20 15:56:49 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/20 15:56:51 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Weapon{
 public:
     Weapon(std::string name);
     ~Weapon();
-    std::string GetType() const;
-    void        SetType(std::string info);
+    std::string _getType() const;
+    void        setType(std::string info);
 private :
-    std::string _type;
+    std::string type;
 };
 
 #endif //CPP_WEAPON_HPP

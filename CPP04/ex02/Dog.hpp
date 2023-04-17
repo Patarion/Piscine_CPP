@@ -10,7 +10,10 @@ public :
     Dog(Dog &cpy);
     ~Dog();
     void makeSound() const;
-    void getIdeas() const;
+    void getBrain() const;
+
+    Dog &operator=(Dog &cpy);
+
 private :
     Brain *intel;
 };

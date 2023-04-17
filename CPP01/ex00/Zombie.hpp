@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 13:25:19 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/02/21 13:25:21 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/02/20 15:50:44 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/20 15:50:46 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ private:
 };
 
 Zombie* newZombie(std::string name);
-void    RandomChump(std::string name);
+void    randomChump(std::string name);
 
 #endif

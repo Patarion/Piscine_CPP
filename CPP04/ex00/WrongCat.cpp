@@ -2,7 +2,7 @@
 #include "WrongAnimal.hpp"
 
 WrongCat::WrongCat(std::string type) : WrongAnimal(type) {
-    std::cout << "Le chat sera pas bon faites attention!" << std::endl;
+    std::cout << "On vient de recevoir un dude déguiser en chat" << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat &cpy) : WrongAnimal(cpy) {

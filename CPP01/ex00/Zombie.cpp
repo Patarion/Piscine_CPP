@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 13:25:08 by jgagnon           #+#    #+#             */
-/*   Updated: 2023/02/21 13:25:10 by jgagnon          ###   ########.fr       */
+/*   Created: 2023/02/20 15:50:14 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/20 15:50:21 by jgagnon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Zombie* newZombie(std::string name) {
     return newZombie;
 }
 
-void RandomChump(std::string name){
+void randomChump(std::string name){
     Zombie Bob(name);
 
     Bob.announce();

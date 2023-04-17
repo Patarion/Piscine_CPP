@@ -12,6 +12,4 @@ public:
     void makeSound() const;
 };
 
-std::ostream & operator<<(std::ostream &out, WrongCat const &val);
-
 #endif //CPP_WRONGCAT_HPP

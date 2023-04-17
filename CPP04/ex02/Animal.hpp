@@ -6,15 +6,19 @@
 
 class Animal {
 public :
-    Animal(std::string s_type);
+    Animal(std::string type);
     Animal(Animal &cpy);
     virtual ~Animal();
     std::string     getType() const;
-    virtual void    makeSound() const = 0;
-    virtual void    getIdeas() const = 0;
+    virtual void    makeSound() const;
+    virtual void    getBrain() const = 0;
+
+    Animal &operator=(Animal &cpy);
 
 protected:
     std::string type;
 };
+
+std::ostream & operator<<(std::ostream &out, Animal const &val);
 
 #endif //CPP_ANIMAL_HPP

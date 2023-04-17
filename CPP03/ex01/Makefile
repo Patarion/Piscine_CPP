@@ -5,7 +5,7 @@ SRCS = main.cpp Claptrap.cpp Scavtrap.cpp
 CC = c++ -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 NORM = norminette
-RM = rm -f
+RM = rm -rf
 
 all: $(NAME)
 
@@ -16,7 +16,7 @@ ${NAME} :
 		@echo "____Scavtrap créé avec succès____"
 
 clean:
-		${RM} ${NAME}
+		${RM} ${NAME} ${NAME}.dSYM
 		@echo "____Scavtrap a succombé aux escaliers____"
 fclean: clean
 

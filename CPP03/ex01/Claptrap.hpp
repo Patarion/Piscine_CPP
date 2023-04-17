@@ -1,6 +1,14 @@
-//
-// Created by Jasmin Gagnon on 1/24/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Claptrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgagnon <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/28 10:29:35 by jgagnon           #+#    #+#             */
+/*   Updated: 2023/02/28 10:29:39 by jgagnon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef CPP_CLAPTRAP_HPP
 #define CPP_CLAPTRAP_HPP
@@ -9,20 +17,20 @@
 
 class Claptrap {
 public :
-    Claptrap(std::string name, int HP, int E, int AD);
+    Claptrap(std::string name);
     Claptrap(Claptrap &cpy);
     ~Claptrap();
     void    attack(const std::string &target);
     void    takeDamage(unsigned int amount);
     void    beRepaired(unsigned int amount);
 
-protected:
-    std::string     _name;
-    int             _Hit_points;
-    int             _Energy;
-    int             _attack_damage;
-};
+    Claptrap & operator=(Claptrap &cpy);
 
-std::ostream & operator<<(std::ostream &out, Claptrap const &val);
+protected:
+    std::string     _Name;
+    int             _Hit_Points;
+    int             _Energy;
+    int             _Attack_Damage;
+};
 
 #endif //CPP_CLAPTRAP_HPP
