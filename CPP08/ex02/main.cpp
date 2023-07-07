@@ -12,26 +12,37 @@
 
 #include "MutantStack.hpp"
 
-int main()
+int main(void)
 {
     MutantStack<int> mstack;
-    mstack.push(5);
+    mstack.push(69);
     mstack.push(17);
-    std::cout << mstack.top() << std::endl;
+    std::cout << "Le tableau a " << mstack.top()<< " sur le dessus de la stack"<< std::endl;
+    std::cout << "On retire un élément de la stack" << std::endl;
     mstack.pop();
-    std::cout << mstack.size() << std::endl;
+    std::cout << "Le tableau contient maintenant ";
+    std::cout << mstack.size() << " élément(s)" << std::endl;
     mstack.push(3);
     mstack.push(5);
-    mstack.push(737);
+    mstack.push(73);
     mstack.push(0);
-    MutantStack<int>::iterator it = mstack.begin();
+    mstack.push(-69);
     MutantStack<int>::iterator ite = mstack.end();
-    ++it;
-    --it;
-    while (it != ite)
-    {
+    std::cout << "On affiche tous les éléments de la stack par itération" << std::endl;
+    for (MutantStack<int>::iterator it = mstack.begin() ; it != ite ; it++)
         std::cout << *it << std::endl;
-        ++it;
-    }
-    return 0;
+
+    std::list<int> list;
+
+    list.push_back(69);
+    list.push_back(3);
+    list.push_back(5);
+    list.push_back(73);
+    list.push_back(0);
+    list.push_back(-69);
+
+    std::list<int>::iterator ite_l = list.end();
+    std::cout << "On affiche tous les éléments de la list par itération" << std::endl;
+    for (std::list<int>::iterator it_l = list.begin() ; it_l != ite_l ; it_l++)
+        std::cout << *it_l << std::endl;
 }

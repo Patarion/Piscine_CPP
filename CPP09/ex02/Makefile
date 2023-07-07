@@ -1,6 +1,6 @@
-NAME = mutant
+NAME = PmergeMe
 
-SRCS = main.cpp MutantStack.cpp
+SRCS = main.cpp PmergeMe.cpp
 
 CC = c++ -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -13,11 +13,11 @@ $(NAME):
 
 ${NAME} :
 		${CC} ${CFLAGS} ${SRCS} -o ${NAME}
-		@echo "_______Time to create a monster like the Loch Ness_______"
+		@echo "Merge with me daddy!"
 
 clean:
 		${RM} ${NAME} ${NAME}.dSYM
-		@echo "_______We failed miserably... We created a chihuahua!_______"
+		@echo "BEGONE YOU HORNY CUNT!"
 fclean: clean
 
 re: fclean all

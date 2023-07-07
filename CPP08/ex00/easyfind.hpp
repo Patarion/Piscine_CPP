@@ -24,19 +24,15 @@
 template <typename T>
 int easyfind(std::list<T> tab, int r)
 {
-    std::list<int>::iterator it;
-    std::list<int>::iterator ite;
-
     if (sizeof(T) != sizeof(int))
-        return (-1);
-    ite = tab.end();
-    for (it = tab.begin() ; it != ite ; ++it)
     {
-        if (*it == r)
-            return (*it);
+        std::cerr << "Le tableau fourni n'est pas un tableau d'integer" << std::endl;
+        return (INT_MIN);
     }
-    std::cout << "Aucune occurence détectée" << std::endl;
-    return (-1);
+    if (std::find(tab.begin(), tab.end(), r) != std::end(tab))
+        return (r);
+    std::cerr << "Aucune occurence détectée" << std::endl;
+    return (INT_MIN);
 }
 
 #endif //CPP_EASYFIND_HPP

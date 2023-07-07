@@ -17,7 +17,7 @@
 #include "Span.hpp"
 
 Span::Span(unsigned int N) : _size(N), _index(0){
-    _tab = new std::list<int>[N];
+    _tab = new std::list<int>;
 }
 Span::Span(Span &cpy){
     *this = cpy;
@@ -25,10 +25,7 @@ Span::Span(Span &cpy){
 
 Span::~Span()
 {
-    if (_tab->size() > 0)
-    {
-        delete [] _tab;
-    }
+    delete _tab;
 }
 
 int     Span::shortestSpan(){
@@ -63,7 +60,7 @@ int     Span::shortestSpan(){
     }
     catch (Span::SpanEmpty)
     {
-        Span::SpanEmpty().EmptyErr();
+        std::cout << Span::SpanEmpty().EmptyErr() << std::endl;
     }
     return (0);
 }
@@ -78,7 +75,6 @@ long long	Span::longestSpan(){
             it1 = _tab->begin();
             it2 = _tab->end();
             it2--;
-			std::cout << *it1 << " " << *it2 << std::endl;
             return (*it2 - *it1);
         }
         else
@@ -117,14 +113,13 @@ void Span::addNumber(int nbr)
         std::cout << Span::SpanFull().FullErr() << std::endl;
         return ;
     }
-    _tab->push_front(nbr);
+    _tab->push_back(nbr);
     _index++;
 }
 
 long int Span::RandomNbr(){
     long int r_val;
 
-//    r_val = rand() % (INT_MAX / 2);
     r_val = rand() % 1000;
     if ((rand() % 2) == 0)
         r_val *= -1;
